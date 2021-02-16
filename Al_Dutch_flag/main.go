@@ -1,9 +1,7 @@
 package main
 
-import "fmt"
-
 // Sort ...
-func Sort(s []int) {
+func Sort(s []int) []int {
 	lowPtr := -1
 	highPtr := len(s)
 	for locPtr := 0; locPtr < highPtr; {
@@ -12,14 +10,13 @@ func Sort(s []int) {
 			s[locPtr], s[lowPtr] = s[lowPtr], s[locPtr]
 			locPtr++
 		} else if s[locPtr] == 2 {
-			fmt.Printf("Low: %v, High: %v; Loc: %v\n", lowPtr, highPtr, locPtr)
 			highPtr--
 			s[locPtr], s[highPtr] = s[highPtr], s[locPtr]
 		} else {
 			locPtr++
 		}
 	}
-	fmt.Println(s)
+	return s
 
 }
 func main() {
